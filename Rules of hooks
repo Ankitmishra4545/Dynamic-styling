@@ -1,0 +1,42 @@
+import React, { useState } from 'react';
+import Input from './Input';
+
+function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <Input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={handleEmailChange}
+        required
+      />
+      <Input
+        type="password"
+        placeholder="Enter your password"
+        value={password}
+        onChange={handlePasswordChange}
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default LoginForm;
